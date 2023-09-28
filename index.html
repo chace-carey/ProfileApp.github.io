@@ -15,6 +15,37 @@
     <h1>This is my Profile App Chacegram!</h1> 
     <iframe src="https://thunkable.site/w/15ScWALgmcdxnP_gM4edi" title="Chacegram" height = 725 width = 450></iframe>
     </center>
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-analytics.js";
+      import {
+        getAuth,
+        createUserWithEmailAndPassword,
+        signInWithEmailAndPassword,
+        onAuthStateChanged,
+        signOut
+      } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
     
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      const firebaseConfig = {
+        apiKey: "AIzaSyAiC5mNsyYj4zae0xvN5wSArxf9eiiDHRI",
+        authDomain: "profileapp-6ef1f.firebaseapp.com",
+        databaseURL: "https://profileapp-6ef1f-default-rtdb.firebaseio.com",
+        projectId: "profileapp-6ef1f",
+        storageBucket: "profileapp-6ef1f.appspot.com",
+        messagingSenderId: "93186707274",
+        appId: "1:93186707274:web:25ceb8bba2db7e6eb0fbb3",
+        measurementId: "G-T41HD12SPV"
+      };
+    
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
+      const auth = getAuth(app);
+    </script>
   </body>
 </html>
