@@ -61,29 +61,25 @@
       const analytics = getAnalytics(app);
       const db = getDatabase();
 
-      function FindData() {
-            const dbref = ref(db);
+      
+      const dbref = ref(db);
 
-            get(child(dbref, "FjneItkJA2Vz77GoBnwS2t5rSRq1/"))
-            .then((snapshot)=>{
-                if(snapshot.exists()){
-                    Name.innerHTML = "Name: " + snapshot.val().name;
-                    PhoneNum.innerHTML = "Phone Number: " + snapshot.val().phone;
-                    Birthday.innerHTML = "Birthday: " + snapshot.val().birthday;
-                    FavColor.innerHTML = "Favorite Color: " + snapshot.val().color;
-                    ProfilePic.src = snapshot.val().image;
-                } else {
-                    alert("No data found");
-                }
-            })
-            .catch((error)=>{
-                alert(error)
-            })
+      get(child(dbref, "FjneItkJA2Vz77GoBnwS2t5rSRq1/"))
+        .then((snapshot)=>{
+          if(snapshot.exists()){
+              Name.innerHTML = "Name: " + snapshot.val().name;
+              PhoneNum.innerHTML = "Phone Number: " + snapshot.val().phone;
+              Birthday.innerHTML = "Birthday: " + snapshot.val().birthday;
+              FavColor.innerHTML = "Favorite Color: " + snapshot.val().color;
+              ProfilePic.src = snapshot.val().image;
+          } else {
+              alert("No data found");
+          }
+      })
+      .catch((error)=>{
+          alert(error)
+      })
             
-        }
-      $(document).ready(function(){
-       FindDta();
-    });
     </script>
 
     
