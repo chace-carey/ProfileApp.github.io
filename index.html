@@ -8,6 +8,8 @@
       <style> 
         h1{
             color: white;}
+        h2{
+            color: white;}
         h3{
             color: white;}
         body{
@@ -25,12 +27,20 @@
     <h1>Here is the Realtime Data for my App!</h1>
     
     <div id="Data">
-      
+
+      <h2 id="User" type="text">User 1</h2>
       <h3 id="Name" type="text"></h3>
       <h3 id="PhoneNum" type="text"></h3>
       <h3 id="Birthday" type="text"></h3>
       <h3 id="FavColor" type="text"></h3>  <br><br>
       <img id="ProfilePic" src="">
+
+      <h2 id="User2" type="text">User 2</h2>
+      <h3 id="Name2" type="text"></h3>
+      <h3 id="PhoneNum2" type="text"></h3>
+      <h3 id="Birthday2" type="text"></h3>
+      <h3 id="FavColor2" type="text"></h3>  <br><br>
+      <img id="ProfilePic2" src="">
       
     </div>
     </center>
@@ -72,6 +82,22 @@
               Birthday.innerHTML = "Birthday: " + snapshot.val().birthday;
               FavColor.innerHTML = "Favorite Color: " + snapshot.val().color;
               ProfilePic.src = snapshot.val().image;
+          } else {
+              alert("No data found");
+          }
+      })
+      .catch((error)=>{
+          alert(error)
+      })
+
+      get(child(dbref, "efYrFiF1nRdUF88MljdDwTlY54s1/"))
+        .then((snapshot)=>{
+          if(snapshot.exists()){
+              Name2.innerHTML = "Name: " + snapshot.val().name;
+              PhoneNum2.innerHTML = "Phone Number: " + snapshot.val().phone;
+              Birthday2.innerHTML = "Birthday: " + snapshot.val().birthday;
+              FavColor2.innerHTML = "Favorite Color: " + snapshot.val().color;
+              ProfilePic2.src = snapshot.val().image;
           } else {
               alert("No data found");
           }
