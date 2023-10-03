@@ -21,6 +21,16 @@
     <h1>This is my Profile App Chacegram!</h1> 
     <iframe src="https://thunkable.site/w/15ScWALgmcdxnP_gM4edi" title="Chacegram" height = 725 width = 450></iframe>
     <h1>Here is the Realtime Data for my App!</h1>
+    
+    <div id="Data">
+      
+      <h3 id="Name" type="text"></h3>
+      <h3 id="PhoneNum" type="text"></h3>
+      <h3 id="Birthday" type="text"></h3>
+      <h3 id="FavColor" type="text"></h3>  <br><br>
+      <img id="ProfilePic" src="">
+      
+    </div>
     </center>
     <script type="module">
       // Import the functions you need from the SDKs you need
@@ -55,6 +65,31 @@
       const app = initializeApp(firebaseConfig);
       const analytics = getAnalytics(app);
       const auth = getAuth(app);
+      const db = getDatabase();
+
+      function FindData() {
+            const dbref = ref(db);
+
+            get(child(dbref, "FjneItkJA2Vz77GoBnwS2t5rSRq1/"))
+            .then((snapshot)=>{
+                if(snapshot.exists()){
+                    Name.innerHTML = "Name: " + snapshot.val().name;
+                    PhoneNum.innerHTML = "Phone Number: " + snapshot.val().phone;
+                    Birthday.innerHTML = "Birthday: " + snapshot.val().birthday;
+                    FavColor.innerHTML = "Favorite Color: " + snapshot.val().color;
+                    ProfilePic.src = snapshot.val().image;
+                } else {
+                    alert("No data found");
+                }
+            })
+            .catch((error)=>{
+                alert(error)
+            })
+            
+        }
     </script>
+
+    
+    
   </body>
 </html>
